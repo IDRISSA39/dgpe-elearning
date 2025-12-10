@@ -2,9 +2,8 @@
 <html lang="fr">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Connexion – DGPE</title>
-  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="/dgpe-elearning/docs/style.css">
 </head>
 
 <body class="login-page">
@@ -12,50 +11,36 @@
 <div class="navbar-login">
   <div class="wrap">
     <div class="logo-group">
-      <img src="./assets/DGPE_Logo.png" class="logo">
-      <span class="brand">e-Learning</span>
+      <img src="/dgpe-elearning/docs/assets/DGPE_Logo.png" class="logo" alt="DGPE">
+      <span class="brand">e-Learning</span> 
     </div>
   </div>
 </div>
+
+<section class="hero" style="background:none;min-height:auto;padding-top:60px;text-align:center">
+  <div class="inner">
+    <h1>Connexion</h1>
+    <p>Accédez à vos cours et à votre tableau de bord</p>
+  </div>
+</section>
 
 <div class="login-wrap">
   <div class="login-card">
     <h2>Se connecter</h2>
 
     <label>Email professionnel</label>
-    <input id="email" class="input" type="email">
+    <input id="email" class="input" type="email" placeholder="prenom.nom@dgpe.gouv">
 
     <label>Mot de passe</label>
     <input id="password" class="input" type="password">
 
-    <button class="btn" onclick="login()">Connexion</button>
+    <button class="btn btn-primary">Connexion</button>
   </div>
 </div>
 
 <footer class="footer">
 © 2025 DGPE – Direction Générale du Portefeuille de l’État
 </footer>
-
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
-<script>
-const supabaseClient = supabase.createClient(
-  "https://hrriedjmpwjfmfimqlmx.supabase.co",
-  "sb_publishable_1AnZMUSy3A4X8xIrKJOKQw_cOX40j9V"
-);
-
-async function login() {
-  const email = document.getElementById("email").value.trim();
-  const password = document.getElementById("password").value.trim();
-
-  const { error } = await supabaseClient.auth.signInWithPassword({
-    email, password
-  });
-
-  if (error) alert("Erreur : " + error.message);
-  else window.location.href = "dashboard.html";
-}
-</script>
 
 </body>
 </html>

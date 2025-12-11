@@ -12,15 +12,15 @@ html, body { margin: 0; padding: 0; }
 body {
   font-family: "Segoe UI", Roboto, Arial, sans-serif;
   color: var(--text);
-  background: url("./assets/fond-nuit.jpg") center/cover fixed no-repeat;
+  background: url("/dgpe-elearning/docs/assets/fond-nuit.jpg") center/cover fixed no-repeat;
 }
 
 body.login-page {
-  background: url("./assets/fond-jour.jpg") center/cover fixed no-repeat;
+  background: url("/dgpe-elearning/docs/assets/fond-jour.jpg") center/cover fixed no-repeat;
 }
 
 /* ===== NAVBAR ===== */
-.navbar, .navbar-login {
+.navbar {
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -29,7 +29,7 @@ body.login-page {
   border-bottom: 1px solid rgba(255, 255, 255, .06);
 }
 
-.navbar .wrap, .navbar-login .wrap {
+.navbar .wrap {
   max-width: 1200px;
   margin: 0 auto;
   padding: 12px 20px;
@@ -45,7 +45,8 @@ body.login-page {
 }
 
 .logo {
-  height: 110px;
+  height: 140px;
+  width: auto;
   object-fit: contain;
   filter: drop-shadow(0 0 6px rgba(30,102,255,0.7))
           drop-shadow(0 0 12px rgba(30,102,255,0.55))
@@ -57,44 +58,56 @@ body.login-page {
   font-weight: 700;
   color: #ffffff;
   white-space: nowrap;
+  display: inline-block;
+  transform: translateY(4px);
   animation: pulseGlow 2.5s ease-in-out infinite;
 }
 
 @keyframes pulseGlow {
-  0% { text-shadow: 0 0 6px rgba(30,102,255,.4); }
-  50% { text-shadow: 0 0 18px rgba(30,102,255,.9); }
-  100% { text-shadow: 0 0 6px rgba(30,102,255,.4); }
+  0% {
+    text-shadow: 0 0 4px rgba(255, 255, 255, 0.4),
+                 0 0 8px rgba(30, 102, 255, 0.3);
+  }
+  50% {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.7),
+                 0 0 18px rgba(30, 102, 255, 0.8),
+                 0 0 28px rgba(30, 102, 255, 0.6);
+  }
+  100% {
+    text-shadow: 0 0 4px rgba(255, 255, 255, 0.4),
+                 0 0 8px rgba(30, 102, 255, 0.3);
+  }
 }
 
-/* ===== HERO ===== */
-.hero {
-  min-height: 60vh;
+.nav {
+  margin-left: auto;
   display: flex;
+  gap: 22px;
   align-items: center;
-  justify-content: center;
-  text-align: center;
-  background: linear-gradient(180deg, rgba(11,53,91,.92), rgba(11,53,91,.92));
 }
 
-.hero h1 { font-size: 46px; }
-.hero p { color: var(--muted); }
+.nav a {
+  color: #e8f0f7;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 8px 10px;
+  border-radius: 10px;
+}
 
-/* ===== BOUTONS ===== */
-.btn {
-  display: inline-block;
+.nav a:hover { background: rgba(255, 255, 255, .08); }
+
+.nav .pill {
   background: var(--dgpe-accent);
   color: #fff;
-  padding: 14px 22px;
+  padding: 10px 14px;
   border-radius: 999px;
-  text-decoration: none;
-  font-weight: 700;
 }
 
 /* ===== LOGIN ===== */
-.login-wrap {
-  display: flex;
-  justify-content: center;
-  padding: 60px 20px;
+.login-wrap { 
+  display: flex; 
+  justify-content: center; 
+  padding: 30px 16px; 
 }
 
 .login-card {
@@ -114,8 +127,7 @@ body.login-page {
   margin: 6px 0 14px;
 }
 
-.footer {
-  text-align: center;
-  padding: 20px;
-  color: var(--muted);
+.btn-primary {
+  width: 100%;
+  margin-top: 8px;
 }

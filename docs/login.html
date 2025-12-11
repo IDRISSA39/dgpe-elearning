@@ -4,7 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Connexion – DGPE</title>
-  <link rel="stylesheet" href="./style.css">
+
+  <link rel="stylesheet" href="/dgpe-elearning/style.css">
 </head>
 
 <body class="login-page">
@@ -12,8 +13,8 @@
 <div class="navbar-login">
   <div class="wrap">
     <div class="logo-group">
-      <img src="./assets/DGPE_Logo.png" class="logo" alt="DGPE">
-      <span class="brand">e-Learning</span> 
+      <img src="/dgpe-elearning/assets/DGPE_Logo.png" class="logo">
+      <span class="brand">e-Learning</span>
     </div>
   </div>
 </div>
@@ -55,10 +56,10 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script>
-const SUPABASE_URL = "https://hrriedjmpwjfmfimqlmx.supabase.co";
-const SUPABASE_KEY = "sb_publishable_1AnZMUSy3A4X8xIrKJOKQw_cOX40j9V";
-
-const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+const supabaseClient = supabase.createClient(
+  "https://hrriedjmpwjfmfimqlmx.supabase.co",
+  "sb_publishable_1AnZMUSy3A4X8xIrKJOKQw_cOX40j9V"
+);
 
 async function login() {
   const email = document.getElementById("email").value.trim();
@@ -69,17 +70,10 @@ async function login() {
     return;
   }
 
-  const { error } = await supabaseClient.auth.signInWithPassword({
-    email,
-    password,
-  });
+  const { error } = await supabaseClient.auth.signInWithPassword({ email, password });
 
-  if (error) {
-    alert("❌ Connexion refusée : " + error.message);
-  } else {
-    alert("✅ Connexion réussie !");
-    window.location.href = "dashboard.html";
-  }
+  if (error) alert("❌ Connexion refusée : " + error.message);
+  else window.location.href = "dashboard.html";
 }
 
 async function register() {
@@ -93,11 +87,8 @@ async function register() {
 
   const { error } = await supabaseClient.auth.signUp({ email, password });
 
-  if (error) {
-    alert("❌ Erreur inscription : " + error.message);
-  } else {
-    alert("✅ Compte créé ! Vérifiez votre email.");
-  }
+  if (error) alert("❌ Erreur inscription : " + error.message);
+  else alert("✅ Compte créé ! Vérifiez votre email.");
 }
 </script>
 

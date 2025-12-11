@@ -1,13 +1,16 @@
 <!doctype html>
 <html lang="fr">
 <head>
-<meta charset="utf-8">
-<title>Catalogue – DGPE</title>
-<link rel="stylesheet" href="/dgpe-elearning/docs/style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Catalogue – DGPE e-Learning</title>
+
+  <link rel="stylesheet" href="/dgpe-elearning/docs/style.css">
 </head>
 
 <body>
 
+<!-- NAVBAR -->
 <div class="navbar">
   <div class="wrap">
     <div class="logo-group">
@@ -21,36 +24,34 @@
       <a href="module.html">Module</a>
       <a href="dashboard.html">Dashboard</a>
       <a href="administration.html">Administration</a>
-      <a href="login.html" class="pill">Déconnexion</a>
+      <a class="pill" href="login.html">Déconnexion</a>
     </nav>
   </div>
 </div>
 
-<div class="page">
+<section class="section">
   <h1>Catalogue des formations</h1>
-  <div id="catalogue"></div>
-</div>
+  <p>Découvrez l’ensemble des modules disponibles.</p>
 
-<footer class="footer">
-© 2025 DGPE – Direction Générale du Portefeuille de l’État
-</footer>
+  <div class="cards">
+    <div class="card">
+      <h3>Introduction à la Gouvernance</h3>
+      <p>Les bases indispensables pour comprendre la gouvernance publique.</p>
+    </div>
 
-<script src="/dgpe-elearning/docs/assets/app.js"></script>
-<script>
-fetch("/dgpe-elearning/docs/assets/data/module.json")
-.then(r => r.json())
-.then(data => {
-  const container = document.getElementById("catalogue");
-  data.modules.forEach(m => {
-    container.innerHTML += `
-      <div class="card">
-        <h3>${m.titre}</h3>
-        <p>${m.resume}</p>
-        <p><b>Durée :</b> ${m.duree}</p>
-      </div>`;
-  });
-});
-</script>
+    <div class="card">
+      <h3>Rôle et responsabilités du DG & PCA</h3>
+      <p>Module essentiel pour les dirigeants des entreprises publiques.</p>
+    </div>
+
+    <div class="card">
+      <h3>Planification stratégique & KPI</h3>
+      <p>Outils et méthodes pour piloter efficacement la performance.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">© 2025 DGPE – Direction Générale du Portefeuille de l’État</footer>
 
 </body>
 </html>
